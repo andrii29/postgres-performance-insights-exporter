@@ -92,8 +92,11 @@ def main():
 
     # Continuously collect metrics every second
     while True:
+        loop_start = time.time()
         collect_metrics()
-        time.sleep(args.interval)
+        # Calculate the time taken to execute the command
+        elapsed = time.time() - loop_start
+        time.sleep(max(0, args.interval - elapsed - 0.0005)) # try to keep loop at interval by extracting actual execution time
 
 if __name__ == '__main__':
     main()
