@@ -1,5 +1,5 @@
 ## Postgres Performance Insights Exporter
-![Grafana Dashboard 20383](images/pi.png)
+![https://grafana.com/grafana/dashboards/21802](images/pi.png)
 A Python script that exports PostgreSQL stats form `pg_stat_activity` and generate Prometheus metrics. Inspired by [AWS Performance insights](https://aws.amazon.com/ru/about-aws/whats-new/2018/04/rds-performance-insights-on-rds-for-postgresql/) and [PostgreSQL In-Depth Training: Performance Part 2](https://www.youtube.com/watch?v=fHlIJg4x13g)
 
 ### Installation
@@ -60,3 +60,6 @@ CREATE USER exporter WITH PASSWORD 'your_password_here';
 -- Grant the necessary permissions to the user
 GRANT SELECT ON pg_stat_activity TO exporter;
 ```
+
+### Grafana Dashboard
+You can find example dashboard at id [21802](https://grafana.com/grafana/dashboards/21802)
