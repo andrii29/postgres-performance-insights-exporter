@@ -11,7 +11,7 @@ python postgres-performance-insights-exporter.py
 ### Docker
 ```js
 docker run -p 9179:9179 -it --rm --name postgres-performance-insights-exporter andriik/postgres-performance-insights-exporter
-docker run -it --rm --net host --name postgres-performance-insights-exporter andriik/postgres-performance-insights-exporter.py // host network
+docker run -it --rm --net host --name postgres-performance-insights-exporter andriik/postgres-performance-insights-exporter // host network
 ```
 
 ### Usage
