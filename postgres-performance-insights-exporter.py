@@ -79,7 +79,8 @@ def main():
         user=args.db_user,
         password=args.db_password,
         host=args.db_host,
-        port=args.db_port
+        port=args.db_port,
+        connect_timeout=10  # Set timeout to 10 seconds
     )
 
     # Start Prometheus metrics server
