@@ -43,6 +43,7 @@ def collect_metrics():
             rows = cursor.fetchall()
             for row in rows:
                 usename, application_name, client_addr, wait_event_type, wait_event, state, query = row
+                application_name = application_name or 'unknown'
                 query_shape = extract_query_shape(query)
                 pi_metric.labels(usename, application_name, client_addr, wait_event_type, wait_event, state, query_shape[:max_string_size]).inc()
     except Exception as e:
