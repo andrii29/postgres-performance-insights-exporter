@@ -56,11 +56,11 @@ def main():
     logging.info('Starting Postgres Performance Insights Exporter')
     parser = argparse.ArgumentParser(description="PostgreSQL Performance Insights Exporter for Prometheus", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--port', type=int, default=9153, help='Port to start the Prometheus metrics server on')
-    parser.add_argument('--db-name', default=os.getenv('DBNAME', 'test'), help='PostgreSQL database name')
-    parser.add_argument('--db-user', default=os.getenv('DBUSER', 'postgres'), help='PostgreSQL user')
-    parser.add_argument('--db-password', default=os.getenv('DBPASSWORD', 'pass'), help='PostgreSQL password')
-    parser.add_argument('--db-host', default=os.getenv('DBHOST', '127.0.0.1'), help='PostgreSQL host')
-    parser.add_argument('--db-port', type=int, default=int(os.getenv('DBPORT', '5432')), help='PostgreSQL port')
+    parser.add_argument('--db-name', default=os.getenv('DB_NAME', 'test'), help='PostgreSQL database name')
+    parser.add_argument('--db-user', default=os.getenv('DB_USER', 'postgres'), help='PostgreSQL user')
+    parser.add_argument('--db-password', default=os.getenv('DB_PASSWORD', 'pass'), help='PostgreSQL password')
+    parser.add_argument('--db-host', default=os.getenv('DB_HOST', '127.0.0.1'), help='PostgreSQL host')
+    parser.add_argument('--db-port', type=int, default=int(os.getenv('DB_PORT', '5432')), help='PostgreSQL port')
     parser.add_argument('--max-string-size', type=int, default=int(os.getenv('MAX_STRING_SIZE', '1000')), help='Maximum size of query string to store')
     parser.add_argument('--interval', type=int, default=int(os.getenv('INTERVAL', '1')), help='This determines how frequently the script will fetch data from PostgreSQL')
 
@@ -87,7 +87,7 @@ def main():
 
     # Log useful information
     logging.info(f'Configuration:')
-    logging.info(f'DBNAME={args.db_name}, DBUSER={args.db_user}, DBHOST={args.db_host}, DBPORT={args.db_port}')
+    logging.info(f'DB_NAME={args.db_name}, DB_USER={args.db_user}, DB_HOST={args.db_host}, DB_PORT={args.db_port}')
     logging.info(f'MAX_STRING_SIZE={max_string_size}')
 
     # Continuously collect metrics every second
