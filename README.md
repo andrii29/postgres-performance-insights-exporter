@@ -2,13 +2,15 @@
 ![Comparison of AWS PostgreSQL Performance Insights vs Prometheus Exporter](images/compare.png)
 A Python script that exports PostgreSQL stats form `pg_stat_activity` and generate Prometheus metrics. Inspired by [AWS Performance insights](https://aws.amazon.com/ru/about-aws/whats-new/2018/04/rds-performance-insights-on-rds-for-postgresql/) and [PostgreSQL In-Depth Training: Performance Part 2](https://www.youtube.com/watch?v=fHlIJg4x13g)
 
+Read more at [Medium](https://medium.com/@andriikrymus/performance-insights-for-postgresql-with-prometheus-and-grafana-920ee8a79f07)
+
 ### Installation
 ```bash
 pip install -r requirements.txt
 python postgres-performance-insights-exporter.py
 ```
 
-### Docker
+### [Docker](https://hub.docker.com/r/andriik/postgres-performance-insights-exporter)
 ```js
 docker run -p 9179:9179 -it --rm --name postgres-performance-insights-exporter andriik/postgres-performance-insights-exporter
 docker run -it --rm --net host --name postgres-performance-insights-exporter andriik/postgres-performance-insights-exporter // host network
