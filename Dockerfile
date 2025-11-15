@@ -1,4 +1,6 @@
-FROM python:3.12-alpine3.20
+ARG PYTHON_VERSION=3.14
+ARG ALPINE_VERSION=3.22
+FROM python:${PYTHON_VERSION}-alpine${ALPINE_VERSION}
 
 RUN apk add build-base libpq libpq-dev
 
@@ -6,7 +8,8 @@ COPY ./requirements.txt ./
 
 RUN pip3 install --no-cache-dir -r ./requirements.txt
 
-FROM python:3.12-alpine3.20
+FROM python:${PYTHON_VERSION}-alpine${ALPINE_VERSION}
+ARG PYTHON_VERSION=3.14
 
 RUN apk update \
     && apk upgrade \
@@ -18,7 +21,7 @@ ARG UID=1000
 RUN adduser -D -s /bin/sh -u ${UID} ${USER}
 WORKDIR /app
 
-COPY --from=0 /usr/local/lib/python3.12/site-packages/ /usr/local/lib/python3.12/site-packages/
+COPY --from=0 /usr/local/lib/python${PYTHON_VERSION}/site-packages/ /usr/local/lib/python${PYTHON_VERSION}/site-packages/
 COPY . .
 RUN chown -R ${USER}:${USER} /app
 USER ${USER}
