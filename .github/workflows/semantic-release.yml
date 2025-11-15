@@ -21,7 +21,8 @@ jobs:
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v5
-        with:
-          semantic_version: 25.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          semantic_version: 25.0.2
+          persist-credentials: false
