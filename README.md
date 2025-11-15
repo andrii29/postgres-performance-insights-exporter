@@ -24,8 +24,10 @@ usage: postgres-performance-insights-exporter.py [-h] [--port PORT]
                                                  [--db-password DB_PASSWORD]
                                                  [--db-host DB_HOST]
                                                  [--db-port DB_PORT]
+                                                 [--db-uri DB_URI]
                                                  [--max-string-size MAX_STRING_SIZE]
                                                  [--interval INTERVAL]
+                                                 [--query-exclude QUERY_EXCLUDE]
 
 PostgreSQL Performance Insights Exporter for Prometheus
 
@@ -39,10 +41,16 @@ options:
                         PostgreSQL password (default: pass)
   --db-host DB_HOST     PostgreSQL host (default: 127.0.0.1)
   --db-port DB_PORT     PostgreSQL port (default: 5432)
+  --db-uri DB_URI       PostgreSQL connection URI that overrides all other DB params
+                        (default: )
   --max-string-size MAX_STRING_SIZE
                         Maximum size of query string to store (default: 1000)
   --interval INTERVAL   This determines how frequently the script will fetch
                         data from PostgreSQL (default: 1)
+  --query-exclude QUERY_EXCLUDE
+                        Exclude queries matching this pattern (PostgreSQL ILIKE)
+                        (default: )
+
 
 ```
 
